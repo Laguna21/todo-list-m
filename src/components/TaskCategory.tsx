@@ -1,19 +1,17 @@
-import {  Typography } from "@mui/material";
-import { Category } from "../types";
-import { categoryTextTaskStyle } from "../styles";
+import { Typography } from '@mui/material';
+import { Category } from '../types';
+import { categoryTextTaskStyle } from '../styles';
 
 type CategoryProps = {
-    category : Category
-}
+  category: Category;
+};
 
 const TaskCategory = ({ category }: CategoryProps) => {
-
-    return (
-            <Typography variant="caption" sx={categoryTextTaskStyle(category.color)}>
-              {category.name}
-            </Typography>
-          
-    );
-  };
+  return (
+    <Typography variant="caption" sx={categoryTextTaskStyle(category.color)}>
+      {category.name}
+    </Typography>
+  );
+};
 
 export default TaskCategory;

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Category, TaskFormType } from '../types';
 
-const defCategory = { id: "", name: "", color: "" };
+const defCategory = { id: '', name: '', color: '' };
 
 export function useTaskFormModal(taskFormModal: TaskFormType) {
   const [title, setTitle] = useState('');
@@ -10,16 +10,16 @@ export function useTaskFormModal(taskFormModal: TaskFormType) {
   const [categorySelected, setCategorySelected] = useState('');
   const [selectedColor, setSelectedColor] = useState('');
 
-  const {open=false, onClose, onCreate, categories = [] } = taskFormModal;
-  const [activeOption, setActiveOption] = useState<"icono" | "color" | null>(null);
+  const { open = false, onClose, onCreate, categories = [] } = taskFormModal;
+  const [activeOption, setActiveOption] = useState<'icono' | 'color' | null>(null);
 
-const handleToggle = (option: "icono" | "color") => {
-  setActiveOption(prev => prev === option ? null : option);
-};
+  const handleToggle = (option: 'icono' | 'color') => {
+    setActiveOption((prev) => (prev === option ? null : option));
+  };
 
   const handleCategory = (e: React.ChangeEvent<HTMLInputElement>) => {
     setCategorySelected(e.target.value);
-    const cat = categories.find(c => c.name === e.target.value) || defCategory;
+    const cat = categories.find((c) => c.name === e.target.value) || defCategory;
     setCategory(cat);
   };
 
