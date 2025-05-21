@@ -49,7 +49,7 @@
       "title": "Crear app para hacerme millonario 🤑",
       "description": null,
       "category_id": "65125b62-8778-5bc8-89ac-098057b9a390",
-      "completed": false
+      "completed": true
     },
     {
       "id": "cbdb75a0-5808-556b-8f6c-fbe2c162752b",
@@ -80,6 +80,22 @@
       "category_id": "24c202cd-6076-58aa-a2e2-3bc3f7d99428",
       "color": "",
       "id": "NcGplUk"
+    },
+    {
+      "completed": false,
+      "title": "test 5",
+      "description": "testing app 5",
+      "category_id": "49078200-32bd-5718-a6e5-5c4e08c0ed9c",
+      "color": "",
+      "id": "A6ONVXg"
+    },
+    {
+      "completed": true,
+      "title": "test 8",
+      "description": "tersting 8 aksdnjaknsdja",
+      "category_id": "65125b62-8778-5bc8-89ac-098057b9a390",
+      "color": "",
+      "id": "k8O9HlG"
     }
   ]
 }

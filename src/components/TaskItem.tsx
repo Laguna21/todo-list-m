@@ -1,4 +1,4 @@
-import { Checkbox, Card, Typography, Grid } from "@mui/material";
+import { Checkbox, Card, Typography} from "@mui/material";
 import { Task } from "../types";
 import TaskCategory from "./TaskCategory";
 import AppleIcon from '@mui/icons-material/Apple';
