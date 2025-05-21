@@ -44,10 +44,11 @@ function App() {
               alignItems: 'center',
               maxWidth: 900,
               backgroundColor: 'rgba(249, 250, 255, 1)',
+              paddingTop:"44px"
             }}
           >
             <div style={{ width: '100%', alignItems: 'flex-start', display: 'flex' }}>
-              <h1 style={mainTitleStyle}>Lista de tareas</h1>
+              <Typography sx={mainTitleStyle}>Lista de tareas</Typography>
             </div>
             <Grid
               container
@@ -55,7 +56,7 @@ function App() {
               direction="column"
               alignItems="center"
               justifyContent="center"
-              sx={{ padding: 2 }}
+              sx={{ padding: 2}}
               width={'100%'}
               maxWidth={'852px'}
             >
@@ -103,7 +104,7 @@ function App() {
             <IconButton
               color="success"
               onClick={() => setOpenModal(true)}
-              sx={{ position: 'fixed', bottom: '10%', right: '19%', width: '56px', height: '56px' }}
+              sx={{ position: 'fixed', bottom: '10%', right: '26%', width: '56px', height: '56px' }}
             >
               <AddCircleIcon sx={{ width: '56px', height: '56px' }} />
             </IconButton>

@@ -1,6 +1,6 @@
-import { Modal, Box, Typography, TextField, Button, MenuItem, IconButton } from '@mui/material';
+import { Modal, Box, TextField, Button, MenuItem, IconButton } from '@mui/material';
 import { TaskFormType } from '../types';
-import { COLORS } from '../utils';
+import { COLORS, ICONS } from '../utils';
 import { modalStyle } from '../styles';
 import { useTaskFormModal } from '../hooks/useTaskFormModal';
 import { Apple, Circle } from '@mui/icons-material';
@@ -20,17 +20,24 @@ export default function TaskFormModal({ taskFormModal }: TaskFormModalProps) {
     setDescription,
     categorySelected,
     handleCategory,
+    selectedIcon,
+    setSelectedIcon,
     selectedColor,
     setSelectedColor,
     categories,
     handleSubmit,
     handleClose,
+    errorMes,
+    setErrorMes,
   } = useTaskFormModal(taskFormModal);
-
+const handlerTitleChanges = (e: React.ChangeEvent<HTMLInputElement>) =>{
+   setTitle(e.target.value)
+   setErrorMes('')
+}
   return (
     <Modal open={open} onClose={handleClose}>
       <Box sx={modalStyle}>
-        <Box display="flex" justifyContent="flex-start" gap={2}>
+        {/* <Box display="flex" justifyContent="flex-start" gap={2}>
           <Button
             variant={activeOption === 'icono' ? 'outlined' : 'text'}
             onClick={() => handleToggle('icono')}
@@ -85,12 +92,65 @@ export default function TaskFormModal({ taskFormModal }: TaskFormModalProps) {
               Color
             </span>
           </Button>
+        </Box> */}
+         {/* Selector de tipo */}
+         <Box display="flex" justifyContent="flex-start" gap={2}>
+          <Button
+            variant={activeOption === 'icono' ? 'outlined' : 'text'}
+            onClick={() => handleToggle('icono')}
+            startIcon={ <Apple />}
+            disableRipple
+            disableElevation
+            sx={{
+              borderRadius: '100px',
+              paddingX: 2,
+              textTransform: 'none',
+              backgroundColor: activeOption === 'icono' ? '#fff0f0' : 'transparent',
+              border: activeOption === 'icono' ? '2px solid #FF6B6B' : 'none',
+              color: '#FF6B6B',
+            }}
+          >
+            <span style={{ fontWeight: 400, fontSize: '16px', color: 'black' }}>Icono</span>
+          </Button>
+
+          <Button
+            variant={activeOption === 'color' ? 'outlined' : 'text'}
+            onClick={() => handleToggle('color')}
+            startIcon={ <Circle sx={{ color: selectedColor || 'red' }} />}
+            disableRipple
+            sx={{
+              borderRadius: '100px',
+              paddingX: 2,
+              textTransform: 'none',
+              backgroundColor: activeOption === 'color' ? '#fff0f0' : 'transparent',
+              border: activeOption === 'color' ? '2px solid #FF6B6B' : 'none',
+              color: '#FF6B6B',
+            }}
+          >
+            <span style={{ fontWeight: 400, fontSize: '16px', color: 'black' }}>Color</span>
+          </Button>
         </Box>
+        {/* Selector de iconos */}
         {activeOption === 'icono' && (
-          <Box display="flex" justifyContent="center" my={2}>
-            <Typography variant="h4">🍓</Typography>
+          <Box display="flex" flexWrap="wrap" justifyContent="center" gap={1} my={2}>
+            {ICONS.map((IconComponent, i) => (
+              <IconButton
+                key={i}
+                onClick={() => setSelectedIcon(IconComponent)}
+                sx={{
+                  border: selectedIcon === IconComponent ? '2px solid red' : 'none',
+                  backgroundColor: '#f5f5f5',
+                  width: 48,
+                  height: 48,
+                  '&:hover': { backgroundColor: '#e0e0e0' },
+                }}
+              >
+                <IconComponent />
+              </IconButton>
+            ))}
           </Box>
         )}
+        {/* Selector de color */}
         {activeOption === 'color' && (
           <Box display="flex" flexWrap="wrap" justifyContent="center" gap={1} my={2}>
             {COLORS.map((color) => (
@@ -112,10 +172,12 @@ export default function TaskFormModal({ taskFormModal }: TaskFormModalProps) {
         <TextField
           label="Título"
           value={title}
-          onChange={(e) => setTitle(e.target.value)}
+          onChange={handlerTitleChanges}
           fullWidth
           margin="normal"
           inputProps={{ maxLength: 40 }}
+          error={errorMes.trim().length !== 0 && title.trim().length !== 0}
+          helperText={errorMes}
           required
         />
 
@@ -136,6 +198,8 @@ export default function TaskFormModal({ taskFormModal }: TaskFormModalProps) {
           onChange={handleCategory}
           fullWidth
           margin="normal"
+          error={errorMes.trim().length !== 0 && categorySelected.trim().length !== 0}
+          helperText={errorMes}
           required
         >
           {categories.map((cat) => (
@@ -154,6 +218,7 @@ export default function TaskFormModal({ taskFormModal }: TaskFormModalProps) {
             variant="contained"
             color="success"
             sx={{ borderRadius: '100px' }}
+            disabled={ !title || !categorySelected}
           >
             Crear
           </Button>

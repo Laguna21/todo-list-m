@@ -65,7 +65,7 @@ const TaskItem = ({ task, onToggle }: TaskItemProps) => {
             justifyContent: 'center',
           }}
         >
-          {category && <TaskCategory category={category} />}
+          {category && <TaskCategory category={category} completed={completed} />}
         </article>
       </section>
     </Card>

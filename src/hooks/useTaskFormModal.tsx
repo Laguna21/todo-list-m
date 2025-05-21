@@ -12,12 +12,15 @@ export function useTaskFormModal(taskFormModal: TaskFormType) {
 
   const { open = false, onClose, onCreate, categories = [] } = taskFormModal;
   const [activeOption, setActiveOption] = useState<'icono' | 'color' | null>(null);
+  const [selectedIcon, setSelectedIcon] = useState<any>(null);
+  const [errorMes, setErrorMes] = useState('');
 
   const handleToggle = (option: 'icono' | 'color') => {
     setActiveOption((prev) => (prev === option ? null : option));
   };
 
   const handleCategory = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setErrorMes('')
     setCategorySelected(e.target.value);
     const cat = categories.find((c) => c.name === e.target.value) || defCategory;
     setCategory(cat);
@@ -34,13 +37,14 @@ export function useTaskFormModal(taskFormModal: TaskFormType) {
   };
 
   const handleSubmit = () => {
-    if (!title || !category.id) return;
+    if (!title || !category.id)   
+      {setErrorMes('Por favor, completá el título y seleccioná una categoría');
+    return;}
     const newTask = {
       completed: false,
       title,
       description,
       category_id: category.id,
-      color: selectedColor,
     };
     onCreate(newTask);
     handleClose();
@@ -58,8 +62,12 @@ export function useTaskFormModal(taskFormModal: TaskFormType) {
     handleCategory,
     selectedColor,
     setSelectedColor,
+    selectedIcon,
+    setSelectedIcon,
     categories,
     handleSubmit,
     handleClose,
+    errorMes,
+    setErrorMes,
   };
 }

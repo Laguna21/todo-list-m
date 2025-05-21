@@ -3,7 +3,8 @@ export const mainTitleStyle = {
   fontSize: '36px',
   lineHeight: '117%',
   letterSpacing: '0px',
-  paddingLeft: 10,
+  paddingLeft: '34px',
+  marginBottom: '27px',
 };
 
 export const mainSubTitleStyle = {
@@ -11,13 +12,16 @@ export const mainSubTitleStyle = {
   fontSize: '20px',
   lineHeight: '160%',
   letterSpacing: '0.15px',
+  marginBottom: '10px',
+  marginLeft: '10px',
 };
 
 export const taskListContainerStyle = {
   gap: '10px',
   padding: '24px',
   borderRadius: '32px',
-  backgroundColor: 'backgroundColor:white',
+  backgroundColor: '#FFFFFF',
+  marginBottom: '12px',
 };
 
 export const cardItemStyle = {
@@ -49,13 +53,13 @@ export const descriptionItemTaskStyle = {
   letterSpacing: '0.17px',
   color: 'rgba(0, 0, 0, 0.6)',
 };
-export const categoryTextTaskStyle = (color?: string | null) => {
+export const categoryTextTaskStyle = (color?: string | null, completed?: boolean|null) => {
   const sty = {
     borderRadius: '100px',
     border: '1px solid',
-    borderColor: color || 'gray',
+    borderColor: color && !completed ?  color:'gray',
     padding: '2px 10px',
-    color: color || 'gray',
+    color: color && !completed  ? color:'gray',
     fontSize: '12px',
   };
   return sty;
