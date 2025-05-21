@@ -63,7 +63,23 @@
       "title": "Terminar la carrera universitaria",
       "description": "Materias aprobadas 46/46",
       "category_id": "24c202cd-6076-58aa-a2e2-3bc3f7d99428",
-      "completed": true
+      "completed": false
+    },
+    {
+      "completed": false,
+      "title": "todo-list-m",
+      "description": "test todo list",
+      "category_id": "65125b62-8778-5bc8-89ac-098057b9a390",
+      "color": "#f28b82",
+      "id": "MmfQka3"
+    },
+    {
+      "completed": true,
+      "title": "test 2",
+      "description": "test 2",
+      "category_id": "24c202cd-6076-58aa-a2e2-3bc3f7d99428",
+      "color": "",
+      "id": "NcGplUk"
     }
   ]
 }

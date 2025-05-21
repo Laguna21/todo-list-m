@@ -1,5 +1,30 @@
+export const mainTitleStyle = {
+  fontWeight: 600,
+  fontSize: "36px",
+  lineHeight: "117%",
+  letterSpacing: "0px",
+  paddingLeft:10
+  };
+
+export const mainSubTitleStyle = {
+  fontWeight: "500",
+  fontSize: "20px",
+  lineHeight: "160%",
+  letterSpacing: "0.15px"
+  
+  };
+
+export const taskListContainerStyle = {
+  gap: "10px",
+  padding: "24px",
+  borderRadius: "32px",
+  backgroundColor:"backgroundColor:white"
+  };
+
+  
+
 export const cardItemStyle = {
-    width: { xs: "100%", sm: 498 },
+    width: "100%",
     height: 76,
     borderRadius: "32px",
     padding: "16px",
@@ -10,7 +35,7 @@ export const cardItemStyle = {
   };
   
   export const checkboxTaskStyle =(showCheck:boolean|null=true)=> {
-  const sty =  { marginRight: "16px",visibility:!showCheck ?"hidden":"" }
+  const sty =  { visibility:!showCheck ?"hidden":"" }
   return sty
   }
 
@@ -39,13 +64,18 @@ export const cardItemStyle = {
 };
 
 export const modalStyle = {
-  /* position: 'absolute' as const,
-  bottom: 0,
-  right: 0, */
-  width: 320,
-  bgcolor: 'rgba(0, 0, 0, 0.08)',
-  borderRadius: 4,
-  boxShadow: 24,
-  p: 3,
-  m: 2
+  position: 'sticky',
+  top: '20%',
+  left: '38%',
+  maxWidth: "396px",
+  bgcolor: '#FFFFFF',
+  borderRadius: "32px",
+  //boxShadow: 24,
+  p: "24px",
+};
+export const textDots = {
+  overflow: 'hidden',
+  textOverflow: 'ellipsis',
+  whiteSpace: 'nowrap',
+  maxWidth: '100%'
 };

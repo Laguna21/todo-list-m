@@ -26,7 +26,7 @@ export const getTaskById = async (id:number|string): Promise<TaskBase> => {
  
 };
 
-export const updateTask = async (task: Task): Promise<Task> => {
+export const updateTask = async (task: TaskBase): Promise<Task> => {
     const config = {method:"PATCH",headers: {
         "Content-Type": "application/json",
       },body: JSON.stringify(task)}

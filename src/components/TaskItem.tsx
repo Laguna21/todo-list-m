@@ -2,46 +2,42 @@ import { Checkbox, Card, Typography, Grid } from "@mui/material";
 import { Task } from "../types";
 import TaskCategory from "./TaskCategory";
 import AppleIcon from '@mui/icons-material/Apple';
-import { cardItemStyle, checkboxTaskStyle, descriptionItemTaskStyle, titleItemTaskStyle } from "../styles";
+import { cardItemStyle, checkboxTaskStyle, descriptionItemTaskStyle, textDots, titleItemTaskStyle } from "../styles";
 
 type TaskItemProps = {
-    task : Task
+    task : Task,
+    onToggle:(itemTask:Task)=>void
 }
-const TaskItem = ({ task }: TaskItemProps) => {
+const TaskItem = ({ task,onToggle }: TaskItemProps) => {
     const { completed = false, showCheck = true, title, description, category } = task;
-    //onChange={onToggle}
     return (
       <Card
         sx={cardItemStyle}
       >
-        <Grid container>
-        <Grid item xs={1} alignContent={"center"}>
+        <section style={{width:"100%",display:"flex",alignItems:"center",alignContent:"center",justifyContent:"space-between"}}>
+        <article style={{display:"flex",alignItems:"center",alignContent:"center",justifyContent:"flex-start"}}>
             <Checkbox
                 checked={completed}
-                
                 sx={checkboxTaskStyle(showCheck)}
-                disableRipple
+                onChange={()=>onToggle(task)}
             />
-
-        </Grid>
-        <Grid item xs={8} container alignContent={"center"}>
-        <Grid item xs={1} alignContent={"center"}>
-        <AppleIcon color="error" />
-        </Grid>
-        <Grid item alignContent={"center"}>  
-          <Typography sx={titleItemTaskStyle}>{title}</Typography>
+            {/* disableRipple */}
+          <AppleIcon sx={{marginRight:"10px"}} color="error" />
+          <article style={{display:"flex",flexDirection:"column",flexWrap:"wrap",justifyContent:"flex-start"}}>
+          <Typography sx={[titleItemTaskStyle,textDots]}>{title}</Typography>
           {description && (
-            <Typography style={descriptionItemTaskStyle}>
+            <Typography sx={[descriptionItemTaskStyle,textDots]}>
               {description}
             </Typography>
           )}
-          </Grid> 
-            </Grid>
-            <Grid item xs={3} alignContent={"center"}>
+          </article>
+        </article>
+
+        <article style={{display:"flex",alignItems:"center",alignContent:"center",justifyContent:"center"}}>
             {category && (
             <TaskCategory category={category} />  )}
-            </Grid>
-        </Grid>
+            </article>
+            </section>
       </Card>
     );
   };
