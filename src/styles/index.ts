@@ -53,13 +53,13 @@ export const descriptionItemTaskStyle = {
   letterSpacing: '0.17px',
   color: 'rgba(0, 0, 0, 0.6)',
 };
-export const categoryTextTaskStyle = (color?: string | null, completed?: boolean|null) => {
+export const categoryTextTaskStyle = (color?: string | null, completed?: boolean | null) => {
   const sty = {
     borderRadius: '100px',
     border: '1px solid',
-    borderColor: color && !completed ?  color:'gray',
+    borderColor: color && !completed ? color : 'gray',
     padding: '2px 10px',
-    color: color && !completed  ? color:'gray',
+    color: color && !completed ? color : 'gray',
     fontSize: '12px',
   };
   return sty;

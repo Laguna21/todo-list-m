@@ -74,7 +74,7 @@
       "id": "MmfQka3"
     },
     {
-      "completed": true,
+      "completed": false,
       "title": "test 2",
       "description": "test 2",
       "category_id": "24c202cd-6076-58aa-a2e2-3bc3f7d99428",
@@ -98,7 +98,7 @@
       "id": "k8O9HlG"
     },
     {
-      "completed": true,
+      "completed": false,
       "title": "test 10",
       "description": "testing app lv 10",
       "category_id": "49078200-32bd-5718-a6e5-5c4e08c0ed9c",
@@ -113,6 +113,20 @@
       "color": "",
       "icon": null,
       "id": "YJNyAKj"
+    },
+    {
+      "completed": false,
+      "title": "test task 21",
+      "description": "testing task 21",
+      "category_id": "c39e10f9-7355-5eac-bdff-99b08f1eb0cc",
+      "id": "DN96KmL"
+    },
+    {
+      "completed": false,
+      "title": "Test job",
+      "description": "Testing job",
+      "category_id": "49078200-32bd-5718-a6e5-5c4e08c0ed9c",
+      "id": "L2jedJT"
     }
   ]
 }

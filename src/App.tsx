@@ -44,7 +44,7 @@ function App() {
               alignItems: 'center',
               maxWidth: 900,
               backgroundColor: 'rgba(249, 250, 255, 1)',
-              paddingTop:"44px"
+              paddingTop: '44px',
             }}
           >
             <div style={{ width: '100%', alignItems: 'flex-start', display: 'flex' }}>
@@ -56,7 +56,7 @@ function App() {
               direction="column"
               alignItems="center"
               justifyContent="center"
-              sx={{ padding: 2}}
+              sx={{ padding: 2 }}
               width={'100%'}
               maxWidth={'852px'}
             >

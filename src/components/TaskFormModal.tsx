@@ -30,10 +30,10 @@ export default function TaskFormModal({ taskFormModal }: TaskFormModalProps) {
     errorMes,
     setErrorMes,
   } = useTaskFormModal(taskFormModal);
-const handlerTitleChanges = (e: React.ChangeEvent<HTMLInputElement>) =>{
-   setTitle(e.target.value)
-   setErrorMes('')
-}
+  const handlerTitleChanges = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setTitle(e.target.value);
+    setErrorMes('');
+  };
   return (
     <Modal open={open} onClose={handleClose}>
       <Box sx={modalStyle}>
@@ -93,12 +93,12 @@ const handlerTitleChanges = (e: React.ChangeEvent<HTMLInputElement>) =>{
             </span>
           </Button>
         </Box> */}
-         {/* Selector de tipo */}
-         <Box display="flex" justifyContent="flex-start" gap={2}>
+        {/* Selector de tipo */}
+        <Box display="flex" justifyContent="flex-start" gap={2}>
           <Button
             variant={activeOption === 'icono' ? 'outlined' : 'text'}
             onClick={() => handleToggle('icono')}
-            startIcon={ <Apple />}
+            startIcon={<Apple />}
             disableRipple
             disableElevation
             sx={{
@@ -116,7 +116,7 @@ const handlerTitleChanges = (e: React.ChangeEvent<HTMLInputElement>) =>{
           <Button
             variant={activeOption === 'color' ? 'outlined' : 'text'}
             onClick={() => handleToggle('color')}
-            startIcon={ <Circle sx={{ color: selectedColor || 'red' }} />}
+            startIcon={<Circle sx={{ color: selectedColor || 'red' }} />}
             disableRipple
             sx={{
               borderRadius: '100px',
@@ -218,7 +218,7 @@ const handlerTitleChanges = (e: React.ChangeEvent<HTMLInputElement>) =>{
             variant="contained"
             color="success"
             sx={{ borderRadius: '100px' }}
-            disabled={ !title || !categorySelected}
+            disabled={!title || !categorySelected}
           >
             Crear
           </Button>

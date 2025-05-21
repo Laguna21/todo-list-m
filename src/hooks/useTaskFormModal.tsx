@@ -20,7 +20,7 @@ export function useTaskFormModal(taskFormModal: TaskFormType) {
   };
 
   const handleCategory = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setErrorMes('')
+    setErrorMes('');
     setCategorySelected(e.target.value);
     const cat = categories.find((c) => c.name === e.target.value) || defCategory;
     setCategory(cat);
@@ -37,9 +37,10 @@ export function useTaskFormModal(taskFormModal: TaskFormType) {
   };
 
   const handleSubmit = () => {
-    if (!title || !category.id)   
-      {setErrorMes('Por favor, completá el título y seleccioná una categoría');
-    return;}
+    if (!title || !category.id) {
+      setErrorMes('Por favor, completá el título y seleccioná una categoría');
+      return;
+    }
     const newTask = {
       completed: false,
       title,
