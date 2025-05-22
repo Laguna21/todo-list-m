@@ -16,7 +16,6 @@ export default function TaskFormModal({ taskFormModal }: TaskFormModalProps) {
     activeOption,
     handleToggle,
     title,
-    setTitle,
     description,
     setDescription,
     categorySelected,

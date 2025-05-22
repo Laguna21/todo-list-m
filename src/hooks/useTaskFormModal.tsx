@@ -42,7 +42,7 @@ export function useTaskFormModal(taskFormModal: TaskFormType) {
       setErrorMes('Por favor, completá el título y seleccioná una categoría');
       return;
     }
-    const newTask:CreateTask  = {
+    const newTask: CreateTask = {
       completed: false,
       title,
       description,
@@ -76,6 +76,6 @@ export function useTaskFormModal(taskFormModal: TaskFormType) {
     handleClose,
     errorMes,
     setErrorMes,
-    handlerTitleChanges
+    handlerTitleChanges,
   };
 }
