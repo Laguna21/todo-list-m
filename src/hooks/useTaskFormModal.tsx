@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { Category, TaskFormType } from '../types';
+import { Category, CreateTask, TaskFormType } from '../types';
+import { SvgIconComponent } from '@mui/icons-material';
 
 const defCategory = { id: '', name: '', color: '' };
 
@@ -12,7 +13,7 @@ export function useTaskFormModal(taskFormModal: TaskFormType) {
 
   const { open = false, onClose, onCreate, categories = [] } = taskFormModal;
   const [activeOption, setActiveOption] = useState<'icono' | 'color' | null>(null);
-  const [selectedIcon, setSelectedIcon] = useState<any>(null);
+  const [selectedIcon, setSelectedIcon] = useState<SvgIconComponent | null>(null);
   const [errorMes, setErrorMes] = useState('');
 
   const handleToggle = (option: 'icono' | 'color') => {
@@ -37,11 +38,11 @@ export function useTaskFormModal(taskFormModal: TaskFormType) {
   };
 
   const handleSubmit = () => {
-    if (!title || !category.id) {
+    if (!title.trim() || !category.id) {
       setErrorMes('Por favor, completá el título y seleccioná una categoría');
       return;
     }
-    const newTask = {
+    const newTask:CreateTask  = {
       completed: false,
       title,
       description,
@@ -49,6 +50,11 @@ export function useTaskFormModal(taskFormModal: TaskFormType) {
     };
     onCreate(newTask);
     handleClose();
+  };
+
+  const handlerTitleChanges = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setTitle(e.target.value);
+    setErrorMes('');
   };
 
   return {
@@ -70,5 +76,6 @@ export function useTaskFormModal(taskFormModal: TaskFormType) {
     handleClose,
     errorMes,
     setErrorMes,
+    handlerTitleChanges
   };
 }

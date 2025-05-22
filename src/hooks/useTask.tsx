@@ -74,6 +74,7 @@ export const useTasks = () => {
     };
     updateTaskItem(updatedItem);
     /* 
+      //update without calling the backend
         if (item.completed) {
           setTasksCompleted(prev => prev.filter(it => it.id !== item.id));
           setTasksPending(prev => [updatedItem, ...prev]);
